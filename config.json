@@ -1,0 +1,109 @@
+{
+  "app": {
+    "name": "MailCraft AI",
+    "tagline": "Write better emails, faster",
+    "version": "1.0.0"
+  },
+  "openrouter": {
+    "api_url": "https://openrouter.ai/api/v1/chat/completions",
+    "default_model": "openai/gpt-4o-mini",
+    "models": [
+      { "id": "openai/gpt-4o-mini", "label": "GPT-4o mini (fast, low cost)" },
+      { "id": "google/gemini-2.0-flash-001", "label": "Gemini 2.0 Flash (fast)" },
+      { "id": "anthropic/claude-3.5-haiku", "label": "Claude 3.5 Haiku (balanced)" },
+      { "id": "meta-llama/llama-3.3-70b-instruct", "label": "Llama 3.3 70B (open model)" },
+      { "id": "deepseek/deepseek-chat", "label": "DeepSeek Chat (low cost)" }
+    ],
+    "temperature": 0.7,
+    "timeout_seconds": 60,
+    "max_retries": 1
+  },
+  "limits": {
+    "min_prompt_chars": 10,
+    "max_prompt_chars": 4000,
+    "max_original_chars": 8000,
+    "rate_limit_per_minute": 30
+  },
+  "modes": [
+    {
+      "id": "compose",
+      "label": "Write new email",
+      "description": "Turn a few notes into a complete, ready-to-send email.",
+      "icon": "pen",
+      "main_label": "What should the email say?",
+      "main_placeholder": "Example: Ask my manager for Friday off to attend a family event. I will finish the report before I leave.",
+      "original_label": null,
+      "original_required": false
+    },
+    {
+      "id": "reply",
+      "label": "Reply to an email",
+      "description": "Paste the email you received and say how you want to answer.",
+      "icon": "reply",
+      "main_label": "How do you want to reply?",
+      "main_placeholder": "Example: Accept the meeting on Thursday at 3 pm, but ask them to send the agenda first.",
+      "original_label": "Email you received",
+      "original_required": true
+    },
+    {
+      "id": "improve",
+      "label": "Improve my draft",
+      "description": "Polish clarity, tone and grammar without changing your meaning.",
+      "icon": "wand",
+      "main_label": "What should be improved?",
+      "main_placeholder": "Example: Make it clearer and more polite. Keep it short.",
+      "original_label": "Your draft",
+      "original_required": true
+    },
+    {
+      "id": "followup",
+      "label": "Follow-up email",
+      "description": "Send a polite nudge after no reply, a meeting or an interview.",
+      "icon": "send",
+      "main_label": "What are you following up on?",
+      "main_placeholder": "Example: I sent a proposal last Monday and have not heard back. I want to ask if they need anything else.",
+      "original_label": "Previous email (optional)",
+      "original_required": false
+    },
+    {
+      "id": "subjects",
+      "label": "Subject lines",
+      "description": "Get eight subject line options that people actually open.",
+      "icon": "subject",
+      "main_label": "What is the email about?",
+      "main_placeholder": "Example: Announcing our new pricing plans for existing customers, effective next month.",
+      "original_label": null,
+      "original_required": false
+    }
+  ],
+  "tones": [
+    { "id": "professional", "label": "Professional" },
+    { "id": "friendly", "label": "Friendly" },
+    { "id": "formal", "label": "Formal" },
+    { "id": "persuasive", "label": "Persuasive" },
+    { "id": "apologetic", "label": "Apologetic" },
+    { "id": "concise", "label": "Concise" }
+  ],
+  "lengths": [
+    { "id": "short", "label": "Short", "words": "50 to 90 words", "max_tokens": 600 },
+    { "id": "medium", "label": "Medium", "words": "100 to 170 words", "max_tokens": 900 },
+    { "id": "long", "label": "Long", "words": "200 to 320 words", "max_tokens": 1500 }
+  ],
+  "languages": [
+    "English",
+    "Urdu",
+    "Hindi",
+    "Arabic",
+    "Spanish",
+    "French",
+    "German",
+    "Portuguese",
+    "Turkish",
+    "Indonesian"
+  ],
+  "defaults": {
+    "tone": "professional",
+    "length": "medium",
+    "language": "English"
+  }
+}
